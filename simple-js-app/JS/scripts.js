@@ -1,3 +1,8 @@
+alert('hello world');
+
+let favoriteFood = 'Sopa de frijoles nuevos'
+document.write(favoriteFood)
+
 let myName = 'Wicho';
 document.write(myName);
 myName = 'Don Wicho';

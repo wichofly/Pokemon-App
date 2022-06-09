@@ -1,8 +1,9 @@
 # Project descrition #
-## build a small web application with HTML, CSS, and JavaScript that loads data from an external API and enables the viewing of data points in detail.
+##  I am building a small web application with HTML, CSS, and JavaScript that loads data from an external API and enables the viewing of data points in detail.
 
 # How to get the projec running? 
 
-# Project dependencies #
+# Project dependencies 
+## JavaScript, ESLint rules
 
 # Which API the project uses #

@@ -4,6 +4,6 @@ I am building a small web application with HTML, CSS, and JavaScript that loads 
 # How to get the projec running? 
 
 # Project dependencies 
-## JavaScript, ESLint rules
+JavaScript, ESLint rules
 
 # Which API the project uses #

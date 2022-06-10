@@ -8,7 +8,7 @@ let pokemonList = [
 ];
 
 for (let i = 0; i < pokemonList.length; i++){
-    if(pokemonList[i].height > 1.0 && pokemonList[i].height < 2.5 ){
+    if(pokemonList[i].height > 1.0 && pokemonList[i].height < 2.5){
         document.write(pokemonList[i].name + ` Average pokemon ` + '<br>')
     } else if( pokemonList[i].height <= 1.0){
         document.write(pokemonList[i].name + ` Small pokemon `+ '<br>')
@@ -16,8 +16,8 @@ for (let i = 0; i < pokemonList.length; i++){
         document.write(pokemonList[i].name + ` Big pokemon `+ '<br>')
     }
     if(pokemonList[i].height > 5.0) {
-        document.write(pokemonList[i].name + ` Wow, that's big! `+ '<br>')
-    }
+       document.write(pokemonList[i].name + ` Wow, that's big! `+ '<br>')
+   }
 }
 
 

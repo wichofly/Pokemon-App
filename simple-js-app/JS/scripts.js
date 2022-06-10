@@ -15,6 +15,10 @@ for (let i = 0; i < pokemonList.length; i++){
     } else {
         document.write(pokemonList[i].name + ` Big pokemon `)
     }
+    if(pokemonList[i].height > 5.0) {
+        document.write(pokemonList[i].name + ` Wow, that's big! `)
+    }
 }
+
 
 

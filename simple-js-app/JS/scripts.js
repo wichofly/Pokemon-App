@@ -15,6 +15,6 @@ for (let i = 0; i < pokemonList.length; i++){
     } else if(pokemonList[i].height > 1.0 && pokemonList[i].height < 3.0){
         document.write(pokemonList[i].name + ` height ` + pokemonList[i].height + ` Medium` + ` <br>`)
     } else {
-        document.write(pokemonList[i].name + (` height ` + pokemonList[i].height) + ` Samll` + ` <br>`)
+        document.write(pokemonList[i].name + (` height ` + pokemonList[i].height) + ` Small` + ` <br>`)
     }
 }

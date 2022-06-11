@@ -7,6 +7,8 @@ let pokemonList = [
     { name: 'Picachu', height: 1.0, type: 'Electric'}
 ];
 
+// "lenght"= gives the number of items in the Array. until now are 6 items
+
 for (let i = 0; i < pokemonList.length; i++){
     if(pokemonList[i].height >= 3.0) {
        document.write(pokemonList[i].name + ` height ` + pokemonList[i].height + ` Big` + ` <br>`)

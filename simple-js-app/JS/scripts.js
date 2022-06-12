@@ -4,7 +4,7 @@ let pokemonList = [
     { name: 'Dragonite', height: 2.2, type: ['Dragon', 'Flying']},
     { name: 'Onix', height: 8.8, type: ['Rock', 'Ground'] },
     { name: 'Gangar', height: 1.5, type: ['Ghost', 'Posion']},
-    { name: 'Picachu', height: 1.0, type: 'Electric'}
+    { name: 'Picachu', height: 0.4, type: 'Electric'}
 ];
 
 // "lenght"= gives the number of items in the Array. until now are 6 items

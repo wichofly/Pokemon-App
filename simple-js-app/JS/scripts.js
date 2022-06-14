@@ -9,6 +9,7 @@ let pokemonList = [
 
 // "lenght"= gives the number of items in the Array. until now are 6 items
 
+/*
 for (let i = 0; i < pokemonList.length; i++){
     if(pokemonList[i].height >= 3.0) {
 
@@ -21,3 +22,14 @@ for (let i = 0; i < pokemonList.length; i++){
         document.write(`${pokemonList[i].name} (height: ${pokemonList[i].height}) - Small <br>`)
     }
 }
+*/
+
+pokemonList.forEach(function(pokemon){
+    if(pokemon.height >= 3.0){
+        document.write(`${pokemon.name} (height: ${pokemon.height}) - Wow, thats's big! <br>`)
+    } else if(pokemon.height > 1.0 && pokemon.height < 3.0){
+        document.write(`${pokemon.name} (height: ${pokemon.height}) - Medium <br>`)   
+    } else{
+        document.write(`${pokemon.name} (height: ${pokemon.height}) - Small <br>`)   
+    }
+})

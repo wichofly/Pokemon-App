@@ -39,6 +39,7 @@ for (let i = 0; i < pokemonList.length; i++){
     }
 }
 */
+// I create pokemonList variable to extract the information inside the IIFE
 
 let pokemonList= pokemonRepository.getAll();
 

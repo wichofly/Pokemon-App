@@ -9,7 +9,11 @@ let pokemonRepository = (function () {
     ]
 
     function add(pokemon){
-        privatePokemonList.push(pokemon);
+        if ( typeof pokemon === 'object' && 'name' in pokemon){
+            privatePokemonList.push(pokemon);
+        } else {
+            console.log(`Pokemon is not valid!`);
+        }        
     }
 
     function getAll() {

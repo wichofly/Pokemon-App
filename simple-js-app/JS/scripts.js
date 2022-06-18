@@ -47,7 +47,6 @@ for (let i = 0; i < pokemonList.length; i++){
 
 let pokemonList= pokemonRepository.getAll();
 
-
 pokemonList.forEach(function (pokemon) {
     if (pokemon.height >= 3.0) {
         document.write(`${pokemon.name} (height: ${pokemon.height}) - Wow, thats's big! <br>`)

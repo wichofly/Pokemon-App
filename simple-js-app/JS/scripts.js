@@ -12,7 +12,7 @@ let pokemonRepository = (function () {
     function add(pokemon) {
         if (typeof pokemon === 'object' && 'name' in pokemon &&
             "height" in pokemon &&
-            "types" in pokemon) {
+            "type" in pokemon) {
             privatePokemonList.push(pokemon);
         } else {
             console.log(`Pokemon is not valid!`);

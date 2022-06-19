@@ -7,7 +7,7 @@ let pokemonRepository = (function () {
         { name: 'Gangar', height: 1.5, type: ['Ghost', 'Posion'] },
         { name: 'Pikachu', height: 0.4, type: 'Electric' }
     ]
-    // "lenght"= gives the number of items in the Array. until now are 6 items
+   
 
     function add(pokemon) {
         if (typeof pokemon === 'object' && 'name' in pokemon &&
@@ -60,6 +60,7 @@ pokemonList.forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
 })
 
+ // "lenght"= gives the number of items in the Array. until now are 6 items
 /*
 for (let i = 0; i < pokemonList.length; i++){
     if(pokemonList[i].height >= 3.0) {

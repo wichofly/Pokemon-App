@@ -7,7 +7,7 @@ let pokemonRepository = (function () {
         { name: 'Gangar', height: 1.5, type: ['Ghost', 'Posion'] },
         { name: 'Pikachu', height: 0.4, type: 'Electric' }
     ]
-   
+
 
     function add(pokemon) {
         if (typeof pokemon === 'object' && 'name' in pokemon &&
@@ -17,32 +17,32 @@ let pokemonRepository = (function () {
         } else {
             console.log(`Pokemon is not valid!`);
         }
-    }
+    };
 
     function getAll() {
         return privatePokemonList;
-    }
+    };
 
     function addListItem(pokemon) {
         let ulPokemonList = document.querySelector('.pokemon-list');
         let listPokemon = document.createElement('li');
         let button = document.createElement('button');
         button.innerText = pokemon.name;
-        button.classList.add('button-class') // Refers to the CSS class
+        button.classList.add('button-class'); // Refers to the CSS class
         listPokemon.appendChild(button);
         ulPokemonList.appendChild(listPokemon);
         eventListener(button, pokemon);
-    }
+    };
 
     function showDetails(pokemon) {
         console.log(pokemon);
-    }
+    };
 
     function eventListener(button, pokemon) {
         button.addEventListener('click', function () {
             showDetails(pokemon)
         });
-    }
+    };
 
     return {
         add: add,
@@ -58,7 +58,7 @@ let pokemonList = pokemonRepository.getAll();
 
 pokemonList.forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
-})
+});
 
  // "lenght"= gives the number of items in the Array. until now are 6 items
 /*

@@ -7,6 +7,7 @@ let pokemonRepository = (function () {
         { name: 'Gangar', height: 1.5, type: ['Ghost', 'Posion'] },
         { name: 'Pikachu', height: 0.4, type: 'Electric' }
     ]
+    // "lenght"= gives the number of items in the Array. until now are 6 items
 
     function add(pokemon) {
         if (typeof pokemon === 'object' && 'name' in pokemon &&
@@ -27,18 +28,18 @@ let pokemonRepository = (function () {
         let listPokemon = document.createElement('li');
         let button = document.createElement('button');
         button.innerText = pokemon.name;
-        button.classList.add('button-class')
+        button.classList.add('button-class') // Refers to the CSS class
         listPokemon.appendChild(button);
         ulPokemonList.appendChild(listPokemon);
         eventListener(button, pokemon);
     }
 
-    function showDetails(pokemon){
+    function showDetails(pokemon) {
         console.log(pokemon);
     }
 
-    function eventListener(button, pokemon){
-        button.addEventListener('click', function(){
+    function eventListener(button, pokemon) {
+        button.addEventListener('click', function () {
             showDetails(pokemon)
         });
     }
@@ -52,7 +53,12 @@ let pokemonRepository = (function () {
 
 })();
 
-// "lenght"= gives the number of items in the Array. until now are 6 items
+// I create pokemonList variable to extract the information inside the IIFE
+let pokemonList = pokemonRepository.getAll();
+
+pokemonList.forEach(function (pokemon) {
+    pokemonRepository.addListItem(pokemon);
+})
 
 /*
 for (let i = 0; i < pokemonList.length; i++){
@@ -68,14 +74,11 @@ for (let i = 0; i < pokemonList.length; i++){
     }
 }
 */
-// I create pokemonList variable to extract the information inside the IIFE
-
-let pokemonList = pokemonRepository.getAll();
 
 
 /*
 =============================================================================
-We are going to use the Loop with addListItem()
+We are going to use the Loop with addListItem(), is not more needed this Loop
 =============================================================================
 pokemonList.forEach(function (pokemon) {
     if (pokemon.height >= 3.0) {
@@ -86,21 +89,4 @@ pokemonList.forEach(function (pokemon) {
         document.write(`${pokemon.name} (height: ${pokemon.height}) - Small <br>`)
     }
 })
-*/
-
-pokemonList.forEach(function (pokemon) {
-    pokemonRepository.addListItem(pokemon);
-})
-
-/*  ==================================================================
-       All this below was part of the loop, it was cut and put inside  "function addListItem()"
-    ==================================================================
-
-    let ulPokemonList = document.querySelector('.pokemon-list');
-    let listPokemon = document.createElement('li');
-    let button = document.createElement('button');
-    button.innerText = pokemon.name;
-    button.classList.add('button-class')
-    listPokemon.appendChild(button);
-    ulPokemonList.appendChild(listPokemon)
 */

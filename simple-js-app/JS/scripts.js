@@ -27,12 +27,20 @@ let pokemonRepository = (function () {
         let ulPokemonList = document.querySelector('.pokemon-list');
         let listPokemon = document.createElement('li');
         let button = document.createElement('button');
+        let newImg = document.createElement('img');
+        newImg.src = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png';
         button.innerText = pokemon.name;
         button.classList.add('button-class'); // Refers to the CSS class
         listPokemon.appendChild(button);
         ulPokemonList.appendChild(listPokemon);
-        eventListener(button, pokemon);
+        ulPokemonList.appendChild(newImg)
+        eventListener(button, pokemon);  
     };
+
+    let container = document.querySelector('#container');
+    let newImage = document.createElement('img');
+    newImage.src = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'
+    container.appendChild(newImage)
 
     function showDetails(pokemon) {
         console.log(pokemon);

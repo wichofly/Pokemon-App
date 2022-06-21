@@ -1,13 +1,6 @@
 let pokemonRepository = (function () {
-    let privatePokemonList = [
-        { name: 'Bulbasaur', height: 0.7, type: ['Grass', 'Posion'] },
-        { name: 'Phyduck', height: 0.8, type: 'Water' },
-        { name: 'Dragonite', height: 2.2, type: ['Dragon', 'Flying'] },
-        { name: 'Onix', height: 8.8, type: ['Rock', 'Ground'] },
-        { name: 'Gangar', height: 1.5, type: ['Ghost', 'Posion'] },
-        { name: 'Pikachu', height: 0.4, type: 'Electric' }
-    ]
-
+    let privatePokemonList = []
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
 
     function add(pokemon) {
         if (typeof pokemon === 'object' && 'name' in pokemon &&

@@ -36,8 +36,11 @@ let pokemonRepository = (function () {
 
     let container = document.querySelector('#container');
     let newImage = document.createElement('img');
-    newImage.src = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'
-    container.appendChild(newImage)
+    let newAsh = document.createElement('img');
+    newImage.src = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png';
+    newAsh.src = 'ash.png';
+    container.appendChild(newImage);
+    container.appendChild(newAsh);
 
     function showDetails(pokemon) {
         console.log(pokemon);

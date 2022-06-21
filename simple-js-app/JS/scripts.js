@@ -27,6 +27,7 @@ let pokemonRepository = (function () {
         eventListener(button, pokemon);  
     };
 
+    /*
     let container = document.querySelector('#container');
     let newImage = document.createElement('img');
     let newAshImg = document.createElement('img');
@@ -34,7 +35,8 @@ let pokemonRepository = (function () {
     newAshImg.src = 'img/ash.png';
     container.appendChild(newImage)
     container.appendChild(newAshImg)
-
+    */
+   
     function showDetails(pokemon) {
         console.log(pokemon);
     };

@@ -45,20 +45,38 @@ let pokemonRepository = (function () {
         });
     };
 
+    function loadList() {
+        return fetch(apiUrl).then(function (response) {
+            return response.json();
+        }).then(function (json) {
+            json.results.forEach(function (item) {
+                let pokemon = {
+                    name: item.name,
+                    detailsUrl: item.url
+                };
+                add(pokemon);
+            });
+        }).catch(function (e) {
+            console.error(e);
+        })
+    }
+
     return {
         add: add,
         getAll: getAll,
         addListItem: addListItem,
-        showDetails: showDetails
+        showDetails: showDetails,
+        loadList: loadList,
     };
-
 })();
 
 // I create pokemonList variable to extract the information inside the IIFE
 let pokemonList = pokemonRepository.getAll();
 
+pokemonRepository.loadList().then(function () {
 pokemonList.forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
+});
 });
 
  // "lenght"= gives the number of items in the Array. until now are 6 items

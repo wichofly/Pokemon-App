@@ -38,7 +38,9 @@ let pokemonRepository = (function () {
     */
 
     function showDetails(pokemon) {
-        console.log(pokemon);
+        loadDetails(pokemon).then(function () {
+            console.log(pokemon);
+        });
     };
 
     function eventListener(button, pokemon) {
@@ -67,12 +69,12 @@ let pokemonRepository = (function () {
         let url = item.detailsUrl;
         return fetch(url).then(function (response) {
             return response.json();
-        }).then(function(details) {
+        }).then(function (details) {
             // Now we add the details to the item
             item.imageUrl = details.sprites.frront_default;
             item.height = details.height;
             item.types = details.types;
-        }).catch(function (e){
+        }).catch(function (e) {
             console.error(e);
         });
     }

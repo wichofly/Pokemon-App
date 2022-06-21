@@ -5,7 +5,7 @@ let pokemonRepository = (function () {
     function add(pokemon) {
         if (typeof pokemon === 'object' && 'name' in pokemon &&
             "height" in pokemon &&
-            "type" in pokemon) {
+            "types" in pokemon) {
             privatePokemonList.push(pokemon);
         } else {
             console.log(`Pokemon is not valid!`);
@@ -24,7 +24,7 @@ let pokemonRepository = (function () {
         button.classList.add('button-class'); // Refers to the CSS class
         listPokemon.appendChild(button);
         ulPokemonList.appendChild(listPokemon);
-        eventListener(button, pokemon);  
+        eventListener(button, pokemon);
     };
 
     /*
@@ -36,7 +36,7 @@ let pokemonRepository = (function () {
     container.appendChild(newImage)
     container.appendChild(newAshImg)
     */
-   
+
     function showDetails(pokemon) {
         console.log(pokemon);
     };
@@ -63,12 +63,27 @@ let pokemonRepository = (function () {
         })
     }
 
+    function loadDetails(item) {
+        let url = item.detailsUrl;
+        return fetch(url).then(function (response) {
+            return response.json();
+        }).then(function(details) {
+            // Now we add the details to the item
+            item.imageUrl = details.sprites.frront_default;
+            item.height = details.height;
+            item.types = details.types;
+        }).catch(function (e){
+            console.error(e);
+        });
+    }
+
     return {
         add: add,
         getAll: getAll,
         addListItem: addListItem,
         showDetails: showDetails,
         loadList: loadList,
+        loadDetails: loadDetails,
     };
 })();
 
@@ -76,9 +91,9 @@ let pokemonRepository = (function () {
 let pokemonList = pokemonRepository.getAll();
 
 pokemonRepository.loadList().then(function () {
-pokemonList.forEach(function (pokemon) {
-    pokemonRepository.addListItem(pokemon);
-});
+    pokemonList.forEach(function (pokemon) {
+        pokemonRepository.addListItem(pokemon);
+    });
 });
 
  // "lenght"= gives the number of items in the Array. until now are 6 items

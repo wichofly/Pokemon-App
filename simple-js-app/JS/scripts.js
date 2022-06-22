@@ -52,8 +52,13 @@ let pokemonRepository = (function () {
     container.append(loadingMessage)
 
     function showLoadingMessage() {
-        loadingMessage.innerText = 'Loading..';
-        console.log('Loading..');
+        loadingMessage.innerText = 'A couple of seconds pelase..';
+        console.log('A couple of seconds pelase....');
+    }
+
+    function hideLoadingMessage(){
+        loadingMessage.remove();
+        console.log('All good, thanks for waiting!')
     }
 
     function loadList() {
@@ -61,6 +66,7 @@ let pokemonRepository = (function () {
         return fetch(apiUrl).then(function (response) {
             return response.json();
         }).then(function (json) {
+            hideLoadingMessage();
             json.results.forEach(function (item) {
                 let pokemon = {
                     name: item.name,
@@ -69,6 +75,7 @@ let pokemonRepository = (function () {
                 add(pokemon);
             });
         }).catch(function (e) {
+            hideLoadingMessage();
             console.error(e);
         })
     }
@@ -79,11 +86,13 @@ let pokemonRepository = (function () {
         return fetch(url).then(function (response) {
             return response.json();
         }).then(function (details) {
+            hideLoadingMessage();
             // Now we add the details to the item
             item.imageUrl = details.sprites.frront_default;
             item.height = details.height;
             item.types = details.types;
         }).catch(function (e) {
+            hideLoadingMessage();
             console.error(e);
         });
     }

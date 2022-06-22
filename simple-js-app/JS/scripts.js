@@ -99,7 +99,7 @@ let pokemonRepository = (function () {
 
     let modalContainer = document.querySelector('#modal-container');
 
-    function showModal(title, text) {        
+    function showModal(title, text) {
         modalContainer.innerHTML = ''; // Clear all existing modal content
         let modal = document.createElement('div');
         modal.classList.add('modal');
@@ -143,9 +143,9 @@ let pokemonRepository = (function () {
         // We only want to close if the user clicks directly on the overlay
         let target = e.target;
         if (target === modalContainer) {
-          hideModal();
+            hideModal();
         }
-      });
+    });
 
     return {
         add: add,

@@ -97,7 +97,7 @@ let pokemonRepository = (function () {
         });
     }
 
-    function showModal() {
+    function showModal(title, text) {
         let modalContainer = document.querySelector('#modal-container');
         modalContainer.innerHTML = ''; // Clear all existing modal content
         let modal = document.createElement('div');
@@ -117,7 +117,7 @@ let pokemonRepository = (function () {
         modal.appendChild(closeButtonElement);
         modal.appendChild(titleElement);
         modal.appendChild(contentElement);
-        modalContainer.appendChild(modal); 
+        modalContainer.appendChild(modal); // modalContainer is the father of modal, modal has 3 childs who are button, title and content.
 
         modalContainer.classList.add('is-visible');
     }

@@ -100,7 +100,7 @@ let pokemonRepository = (function () {
 
     let modalContainer = document.querySelector('#modal-container');
 
-    function showModal(title, text) {
+    function showModal(pokemon) {
         modalContainer.innerHTML = ''; // Clear all existing modal content
         let modal = document.createElement('div');
         modal.classList.add('modal');
@@ -112,14 +112,18 @@ let pokemonRepository = (function () {
         closeButtonElement.addEventListener('click', hideModal);
 
         let titleElement = document.createElement('h1');
-        titleElement.innerText = title;
+        titleElement.innerText = pokemon.name;
 
         let contentElement = document.createElement('p');
-        contentElement.innerText = text;
+        contentElement.innerText = pokemon.height;
+
+        let pokemonImage = document.createElement('img');
+        pokemonImage.src = pokemon.imageUrl;
 
         modal.appendChild(closeButtonElement);
         modal.appendChild(titleElement);
         modal.appendChild(contentElement);
+        modal.appendChild(pokemonImage);
         modalContainer.appendChild(modal); // modalContainer is the father of modal, modal has 3 childs who are button, title and content.
 
         modalContainer.classList.add('is-visible');

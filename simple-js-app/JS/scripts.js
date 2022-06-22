@@ -150,7 +150,18 @@ let pokemonRepository = (function () {
 
         // We want to focus the confirmButton so that the user can simply press Enter
         confirmButton.focus();
+        return new Promise((resolve, reject) => {
+            cancelButton.addEventListener('click', () => {
+                hideModal();
+                reject();
+            });
+            confirmButton.addEventListener('click', () => {
+                hideModal();
+                resolve();
+            })
+        });
     }
+
 
     document.querySelector('#show-dialog').addEventListener('click', () => {
         showDialog('Confirm action', 'Are you sure you want to do this?').then(function () {

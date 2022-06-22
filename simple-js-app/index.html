@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
     <link rel="shortcut icon" href="img/favicon-32x32.png">
     <link rel="stylesheet" href="CSS/styles.css" type="text/css">
     <title>Simple JS App</title>
 </head>
+
 <body>
     <h1>Pokedex</h1>
     <ul class="pokemon-list"></ul>
     <div id="container"></div>
 
-
-
+    <button id='show-modal'>Show modal</button>
+    <div id='modal-container'>
+        <!--
+        ==================================================
+        This is what is going to be created by JS (Function showModal)
+        ==================================================
+      <div class='modal'>
+        <button class='modal-close'>Close</button>
+        <h1>Modal title</h1>
+        <p>Modal text</p>       
+      </div>
+        -->
+    </div>
 
     <script src="JS/promise-polyfill.js"></script>
-    <script src="JS/fetch-polyfill.js"></script>    
-    <script src="JS/scripts.js"></script> 
+    <script src="JS/fetch-polyfill.js"></script>
+    <script src="JS/scripts.js"></script>
+
 </body>
+
 </html>

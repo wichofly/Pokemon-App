@@ -25,7 +25,7 @@ let pokemonRepository = (function () {
         eventListener(button, pokemon);
     };
 
-    /*
+    /* Adding img 
     let container = document.querySelector('#container');
     let newImage = document.createElement('img');
     let newAshImg = document.createElement('img');
@@ -96,7 +96,7 @@ pokemonRepository.loadList().then(function () {
     });
 });
 
- // "lenght"= gives the number of items in the Array. until now are 6 items
+
 /*
 for (let i = 0; i < pokemonList.length; i++){
     if(pokemonList[i].height >= 3.0) {

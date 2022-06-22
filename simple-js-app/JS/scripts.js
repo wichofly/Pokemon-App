@@ -56,7 +56,7 @@ let pokemonRepository = (function () {
         console.log('A couple of seconds pelase....');
     }
 
-    function hideLoadingMessage(){
+    function hideLoadingMessage() {
         loadingMessage.remove();
         console.log('All good, thanks for waiting!')
     }
@@ -83,7 +83,7 @@ let pokemonRepository = (function () {
     function loadDetails(item) {
         showLoadingMessage();
         let url = item.detailsUrl;
-        return fetch(url).then(function (response) { 
+        return fetch(url).then(function (response) {
             return response.json();
         }).then(function (details) {
             hideLoadingMessage();
@@ -99,12 +99,27 @@ let pokemonRepository = (function () {
 
     function showModal() {
         let modalContainer = document.querySelector('#modal-container');
+        modalContainer.innerHTML = ''; // Clear all existing modal content
+        let modal = document.createElement('div');
+        modal.classList.add('modal');
+
+        // Add the new modal content
+        let closeButtonElement = document.createElement('button');
+        closeButtonElement.classList.add('modal-close'); // this class exists in the CSS file.
+        closeButtonElement.innerText = 'Close';
+
+        let titleElement = document.createElement('h1');
+        titleElement.innerText = title;
+
+        let contentElement = document.createElement('p');
+        contentElement.innerText = text;
+
         modalContainer.classList.add('is-visible');
-      }
-      
-      document.querySelector('#show-modal').addEventListener('click', () => {
+    }
+
+    document.querySelector('#show-modal').addEventListener('click', () => {
         showModal();
-      });
+    });
 
     return {
         add: add,
@@ -119,7 +134,7 @@ let pokemonRepository = (function () {
 // I create pokemonList variable to extract the information inside the IIFE
 let pokemonList = pokemonRepository.getAll();
 
-pokemonRepository.loadList().then(function () {     
+pokemonRepository.loadList().then(function () {
     pokemonList.forEach(function (pokemon) {
         pokemonRepository.addListItem(pokemon);
     });

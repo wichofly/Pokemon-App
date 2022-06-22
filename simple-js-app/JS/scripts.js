@@ -47,7 +47,17 @@ let pokemonRepository = (function () {
         });
     };
 
+    let container = document.querySelector('#container');
+    let loadingMessage = document.createElement('div');
+    container.append(loadingMessage)
+
+    function showLoadingMessage() {
+        loadingMessage.innerText = 'Loading..';
+        console.log('Loading..');
+    }
+
     function loadList() {
+        showLoadingMessage();
         return fetch(apiUrl).then(function (response) {
             return response.json();
         }).then(function (json) {
@@ -64,6 +74,7 @@ let pokemonRepository = (function () {
     }
 
     function loadDetails(item) {
+        showLoadingMessage();
         let url = item.detailsUrl;
         return fetch(url).then(function (response) {
             return response.json();

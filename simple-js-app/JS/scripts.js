@@ -159,14 +159,15 @@ let pokemonRepository = (function () {
         // We want to focus the confirmButton so that the user can simply press Enter
         confirmButton.focus();
         return new Promise((resolve, reject) => {
-            cancelButton.addEventListener('click', () => {
-                hideModal();
-                reject();
-            });
+            cancelButton.addEventListener('click', hideModal);
             confirmButton.addEventListener('click', () => {
+                dialogPromiseReject = null; // Reset this
                 hideModal();
                 resolve();
-            })
+            });
+
+            // This can be used to reject from other functions
+            dialogPromiseReject = reject;
         });
     }
 

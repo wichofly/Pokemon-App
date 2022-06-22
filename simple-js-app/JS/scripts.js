@@ -52,7 +52,7 @@ let pokemonRepository = (function () {
     container.append(loadingMessage)
 
     function showLoadingMessage() {
-        loadingMessage.innerText = 'A couple of seconds pelase..';
+        loadingMessage.innerText = 'A couple of seconds please..';
         console.log('A couple of seconds pelase....');
     }
 
@@ -63,18 +63,18 @@ let pokemonRepository = (function () {
 
     function loadList() {
         showLoadingMessage();
-        return fetch(apiUrl).then(function (response) {
-            return response.json();
-        }).then(function (json) {
+        return fetch(apiUrl).then(function (response) { // allows you to get, or “fetch,” data asynchronously from external data sources. ".then()" is expecting a promise that in this case is the 'apiUrl' the code within is executed If the code in the promise is successfully completed.
+            return response.json();                     // the response will be converted to a json. it will return a promise object.
+        }).then(function (json) {                       // the second .then() statement will contain the callback function for this second promise.  when working with promises, is called “Promise Chaining.” this means that pokemonList will contain an array of JSON objects, each representing a single Pokémon.
             hideLoadingMessage();
-            json.results.forEach(function (item) {
+            json.results.forEach(function (item) {  // The result of json, we are going to run it a forEach loop that presents all data from APi
                 let pokemon = {
-                    name: item.name,
-                    detailsUrl: item.url
+                    name: item.name,                // I am asking for each item the name 
+                    detailsUrl: item.url            // I am asking for each item the detailsUrl
                 };
-                add(pokemon);
+                add(pokemon);                       // once the loop is run, i said add pokemon (the first function in pokemonRepository)
             });
-        }).catch(function (e) {
+        }).catch(function (e) {                     // If there is an error after push the pokemon(object), is gonna be caught right here 
             hideLoadingMessage();
             console.error(e);
         })
@@ -83,7 +83,7 @@ let pokemonRepository = (function () {
     function loadDetails(item) {
         showLoadingMessage();
         let url = item.detailsUrl;
-        return fetch(url).then(function (response) {
+        return fetch(url).then(function (response) { 
             return response.json();
         }).then(function (details) {
             hideLoadingMessage();
@@ -110,7 +110,7 @@ let pokemonRepository = (function () {
 // I create pokemonList variable to extract the information inside the IIFE
 let pokemonList = pokemonRepository.getAll();
 
-pokemonRepository.loadList().then(function () {
+pokemonRepository.loadList().then(function () {     
     pokemonList.forEach(function (pokemon) {
         pokemonRepository.addListItem(pokemon);
     });

@@ -124,8 +124,16 @@ let pokemonRepository = (function () {
         modalContainer.classList.add('is-visible');
     }
 
+    let dialogPromiseReject; // This can be set later, by showDialog
+
     function hideModal() {
+        let modalContainer = document.querySelector('#modal-container');
         modalContainer.classList.remove('is-visible');
+
+        if (dialogPromiseReject) {
+            dialogPromiseReject();
+            dialogPromiseReject = null;
+        }
     }
 
     function showDialog(title, text) {

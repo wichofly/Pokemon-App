@@ -107,6 +107,7 @@ let pokemonRepository = (function () {
         let closeButtonElement = document.createElement('button');
         closeButtonElement.classList.add('modal-close'); // this class exists in the CSS file.
         closeButtonElement.innerText = 'Close';
+        closeButtonElement.addEventListener('click', hideModal);
 
         let titleElement = document.createElement('h1');
         titleElement.innerText = title;
@@ -120,6 +121,11 @@ let pokemonRepository = (function () {
         modalContainer.appendChild(modal); // modalContainer is the father of modal, modal has 3 childs who are button, title and content.
 
         modalContainer.classList.add('is-visible');
+    }
+
+    function hideModal() {
+        let modalContainer = document.querySelector('#modal-container');
+        modalContainer.classList.remove('is-visible');
     }
 
     document.querySelector('#show-modal').addEventListener('click', () => {

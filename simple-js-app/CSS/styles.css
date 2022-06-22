@@ -70,3 +70,12 @@ body {
 .modal p {
   margin-bottom: 0;
 }
+
+#modal-container {
+  display: none;
+}
+
+#modal-container.is-visible {
+  /* my own sytle add here */
+  display: block;
+}

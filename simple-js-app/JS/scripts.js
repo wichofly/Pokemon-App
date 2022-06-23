@@ -71,7 +71,7 @@ let pokemonRepository = (function () {
             json.results.forEach(function (item) {  // The result of json, we are going to run it a forEach loop that presents all data from APi
                 let pokemon = {
                     name: item.name,                // I am asking for each item the name 
-                    detailsUrl: item.url            // I am asking for each item the detailsUrl
+                    detailsUrl: item.url            // I am asking for each item the detailsUrl (I use "detailsUrl" property to load the detailed data for given pokemon)
                 };
                 add(pokemon);                       // once the loop is run, i said add pokemon (the first function in pokemonRepository)
             });

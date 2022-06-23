@@ -89,9 +89,10 @@ let pokemonRepository = (function () {
         }).then(function (details) {
             hideLoadingMessage();
             // Now we add the details to the item
-            item.imageUrl = details.sprites.frront_default;
+            item.imageUrl = details.sprites.other.dream_world.front_default;
             item.height = details.height;
             item.types = details.types;
+            item.weight = details.weight;
         }).catch(function (e) {
             hideLoadingMessage();
             console.error(e);
@@ -111,19 +112,23 @@ let pokemonRepository = (function () {
         closeButtonElement.innerText = 'Close';
         closeButtonElement.addEventListener('click', hideModal);
 
+        let pokemonImg = document.createElement('img');
+        pokemonImg.src = pokemon.imageUrl;
+
         let titleElement = document.createElement('h1');
         titleElement.innerText = pokemon.name;
 
-        let contentElement = document.createElement('p');
-        contentElement.innerText = pokemon.height;
-
-        let pokemonImage = document.createElement('img');
-        pokemonImage.src = pokemon.imageUrl;
-
+        let heightElement = document.createElement('p');
+        heightElement.innerText = `Height: ${pokemon.height}`;
+                                    
+        let weightElement = document.createElement('p');
+        weightElement.innerText = `Weight: ${pokemon.weight} Kg`;
+                                    
         modal.appendChild(closeButtonElement);
+        modal.appendChild(pokemonImg);
         modal.appendChild(titleElement);
-        modal.appendChild(contentElement);
-        modal.appendChild(pokemonImage);
+        modal.appendChild(heightElement);
+        modal.appendChild(weightElement);
         modalContainer.appendChild(modal); // modalContainer is the father of modal, modal has 3 childs who are button, title and content.
 
         modalContainer.classList.add('is-visible');

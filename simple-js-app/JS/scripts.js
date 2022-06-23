@@ -35,7 +35,6 @@ let pokemonRepository = (function () {
     container.appendChild(newAshImg)
     */
 
-
     function eventListener(button, pokemon) {
         button.addEventListener('click', function () {
             showDetails(pokemon)
@@ -64,7 +63,7 @@ let pokemonRepository = (function () {
             hideLoadingMessage();
             json.results.forEach(function (item) {  // The result of json, we are going to run it a forEach loop that presents all data from APi
                 let pokemon = {
-                    name: item.name,                // I am asking for each item the name 
+                    name: item.name.toUpperCase(),                // I am asking for each item the name 
                     detailsUrl: item.url            // I am asking for each item the detailsUrl (I use "detailsUrl" property to load the detailed data for given pokemon)
                 };
                 add(pokemon);                       // once the loop is run, i said add pokemon (the first function in pokemonRepository)
@@ -119,7 +118,7 @@ let pokemonRepository = (function () {
         pokemonImg.src = pokemon.imageUrl;
 
         let titleElement = document.createElement('h1');
-        titleElement.innerText = pokemon.name;
+        titleElement.innerText = pokemon.name.toUpperCase();
 
         let heightElement = document.createElement('p');
         heightElement.innerText = `Height: ${pokemon.height}`;

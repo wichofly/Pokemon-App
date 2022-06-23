@@ -91,7 +91,9 @@ let pokemonRepository = (function () {
             // Now we add the details to the item
             item.imageUrl = details.sprites.other.dream_world.front_default;
             item.height = details.height;
-            item.types = details.types;
+            let types = [];
+			details.types.forEach((item) => types.push(item.type.name));
+			item.types = types;
             item.weight = details.weight;
         }).catch(function (e) {
             hideLoadingMessage();
@@ -123,12 +125,16 @@ let pokemonRepository = (function () {
                                     
         let weightElement = document.createElement('p');
         weightElement.innerText = `Weight: ${pokemon.weight} Kg`;
+
+        let typesElement = document.createElement('p');
+		typesElement.innerText = `Types: ${pokemon.types}`;
                                     
         modal.appendChild(closeButtonElement);
         modal.appendChild(pokemonImg);
         modal.appendChild(titleElement);
         modal.appendChild(heightElement);
         modal.appendChild(weightElement);
+        modal.appendChild(typesElement);
         modalContainer.appendChild(modal); // modalContainer is the father of modal, modal has 3 childs who are button, title and content.
 
         modalContainer.classList.add('is-visible');

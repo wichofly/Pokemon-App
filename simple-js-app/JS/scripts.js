@@ -35,12 +35,6 @@ let pokemonRepository = (function () {
     container.appendChild(newAshImg)
     */
 
-    function showDetails(pokemon) {
-        loadDetails(pokemon).then(function () {
-            //console.log(pokemon);
-            showModal(pokemon);
-        });
-    };
 
     function eventListener(button, pokemon) {
         button.addEventListener('click', function () {
@@ -100,6 +94,13 @@ let pokemonRepository = (function () {
             console.error(e);
         });
     }
+    
+    function showDetails(pokemon) {
+        loadDetails(pokemon).then(function () {
+            //console.log(pokemon);
+            showModal(pokemon);
+        });
+    };
 
     let modalContainer = document.querySelector('#modal-container');
 

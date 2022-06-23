@@ -127,7 +127,7 @@ let pokemonRepository = (function () {
         weightElement.innerText = `Weight: ${pokemon.weight}`;
 
         let typesElement = document.createElement('p');
-		typesElement.innerText = `Types: ${pokemon.types}`;
+		typesElement.innerText = `Types: ${pokemon.types.join(", ")}`;
                                     
         modal.appendChild(closeButtonElement);
         modal.appendChild(titleElement);

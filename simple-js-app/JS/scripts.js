@@ -124,7 +124,7 @@ let pokemonRepository = (function () {
         heightElement.innerText = `Height: ${pokemon.height}`;
                                     
         let weightElement = document.createElement('p');
-        weightElement.innerText = `Weight: ${pokemon.weight} Kg`;
+        weightElement.innerText = `Weight: ${pokemon.weight}`;
 
         let typesElement = document.createElement('p');
 		typesElement.innerText = `Types: ${pokemon.types}`;

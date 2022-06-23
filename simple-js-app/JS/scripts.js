@@ -152,8 +152,8 @@ let pokemonRepository = (function () {
         }
     }
 
-    function showDialog(title, text) {
-        showModal(title, text);
+    function showDialog(pokemon) {
+        showModal(pokemon);
 
         // We have defined modalContainer here
         let modalContainer = document.querySelector('#modal-container');

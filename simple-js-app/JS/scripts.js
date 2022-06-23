@@ -85,7 +85,9 @@ let pokemonRepository = (function () {
             item.imageUrl = details.sprites.other.dream_world.front_default;
             item.height = details.height;
             let types = [];
-			details.types.forEach((item) => types.push(item.type.name));
+			details.types.forEach(function(item) {
+                types.push(item.type.name)
+            });
 			item.types = types;
             item.weight = details.weight;
         }).catch(function (e) {
@@ -124,7 +126,7 @@ let pokemonRepository = (function () {
         heightElement.innerText = `Height: ${pokemon.height}`;
                                     
         let weightElement = document.createElement('p');
-        weightElement.innerText = `Weight: ${pokemon.weight} Kg`;
+        weightElement.innerText = `Weight: ${pokemon.weight}`;
 
         let typesElement = document.createElement('p');
 		typesElement.innerText = `Types: ${pokemon.types}`;

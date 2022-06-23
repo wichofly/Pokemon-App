@@ -130,8 +130,8 @@ let pokemonRepository = (function () {
 		typesElement.innerText = `Types: ${pokemon.types}`;
                                     
         modal.appendChild(closeButtonElement);
-        modal.appendChild(pokemonImg);
         modal.appendChild(titleElement);
+        modal.appendChild(pokemonImg);
         modal.appendChild(heightElement);
         modal.appendChild(weightElement);
         modal.appendChild(typesElement);

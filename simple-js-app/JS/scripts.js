@@ -143,7 +143,6 @@ let pokemonRepository = (function () {
     let dialogPromiseReject; // This can be set later, by showDialog
 
     function hideModal() {
-        let modalContainer = document.querySelector('#modal-container');
         modalContainer.classList.remove('is-visible');
 
         if (dialogPromiseReject) {
@@ -154,9 +153,6 @@ let pokemonRepository = (function () {
 
     function showDialog(pokemon) {
         showModal(pokemon);
-
-        // We have defined modalContainer here
-        let modalContainer = document.querySelector('#modal-container');
 
         // We want to add a confirm and cancel button to the modal
         let modal = modalContainer.querySelector('.modal');

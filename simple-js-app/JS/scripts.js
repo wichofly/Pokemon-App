@@ -64,7 +64,7 @@ let pokemonRepository = (function () {
 
     function loadList() {
         showLoadingMessage();
-        return fetch(apiUrl).then(function (response) { // Allows you to get, or “fetch,” data asynchronously from external data sources. ".then()" is expecting a promise that in this case is the 'apiUrl' the code within is executed If the code in the promise is successfully completed.
+        return fetch(apiUrl).then(function (response) { // Allows me to get, or “fetch,” data asynchronously from external data sources. ".then()" is expecting a promise that in this case is the 'apiUrl' the code within is executed If the code in the promise is successfully completed.
             return response.json();                     // the response will be converted to a json. it will return a promise object.
         }).then(function (json) {                       // the second .then() statement will contain the callback function for this second promise.  when working with promises, is called “Promise Chaining.” this means that pokemonList will contain an array of JSON objects, each representing a single Pokémon.
             hideLoadingMessage();

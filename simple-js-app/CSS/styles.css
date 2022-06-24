@@ -29,6 +29,10 @@ body {
   border: 2px solid #4caf50;
 }
 
+.button-class:hover {
+  opacity: .8;
+}
+
 #modal-container {
   position: fixed;
   padding: 20px;

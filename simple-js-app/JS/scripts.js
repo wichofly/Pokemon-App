@@ -17,10 +17,13 @@ let pokemonRepository = (function () {
     function addListItem(pokemon) {
         let ulPokemonList = document.querySelector('.pokemon-list');
         let listPokemon = document.createElement('li');
+        let container = document.createElement('div');
         let button = document.createElement('button');
         button.innerText = pokemon.name;
+        container.classList.add('container')
         button.classList.add('button-class'); // Refers to the CSS class
-        listPokemon.appendChild(button);
+        container.appendChild(button)
+        listPokemon.appendChild(container);
         ulPokemonList.appendChild(listPokemon);
         eventListener(button, pokemon);
     };
@@ -88,6 +91,9 @@ let pokemonRepository = (function () {
 			details.types.forEach((item) => types.push(item.type.name));
 			item.types = types;
             item.weight = details.weight;
+            let abilities = [];
+            details.abilities.forEach((item) => abilities.push(item.abilities.name));
+            item.abilities = abilities;
         }).catch(function (e) {
             hideLoadingMessage();
             console.error(e);
@@ -101,9 +107,39 @@ let pokemonRepository = (function () {
         });
     };
 
-    let modalContainer = document.querySelector('#modal-container');
+    let modalContainer = document.querySelector('#exampleModal');
 
     function showModal(pokemon) {
+        let modalBody = $('.modal-body');
+        let modalTitle = $('.modal-title');
+      
+        modalTitle.empty();
+        modalBody.empty();
+
+        //creating elements 
+        let nameElement = $('<h1>' + pokemon.name + '</h1>');
+        
+        let imageElement = $('<img class="modal-img" style="width:50%>');
+        imageElement.attr("src", pokemon.imageUrl)
+
+        let heightElement = $('<p>' + "Height: " + pokemon.height + '</p>');
+
+        let weightElement = $('<p>' + "Weight: " + pokemon.weight + '</p>');
+
+        let typesElement = $('<p>' + "Types: " + pokemon.types + '</p>');
+
+        let abilitiesElement = $('<p>' + "Abilities: " + pokemon.abilities + '</p>');
+
+        modalTitle.append(nameElement);
+        modalBody.append(imageElement);
+        modalBody.append(heightElement);
+        modalBody.append(weightElement);
+        modalBody.append(typesElement);
+        modalBody.append(abilitiesElement);
+        $('#exampleModal').modal();
+      
+
+        /* 
         modalContainer.innerHTML = ''; // Clear all existing modal content
         let modal = document.createElement('div');
         modal.classList.add('modal');
@@ -120,13 +156,13 @@ let pokemonRepository = (function () {
         let titleElement = document.createElement('h1');
         titleElement.innerText = pokemon.name.toUpperCase();
 
-        let heightElement = document.createElement('p');
+        let heightElemen = document.createElement('p');
         heightElement.innerText = `Height: ${pokemon.height}`;
                                     
-        let weightElement = document.createElement('p');
+        let weightElemen = document.createElement('p');
         weightElement.innerText = `Weight: ${pokemon.weight}`;
 
-        let typesElement = document.createElement('p');
+        let typesElemen = document.createElement('p');
 		typesElement.innerText = `Types: ${pokemon.types.join(", ")}`;
                                     
         modal.appendChild(closeButtonElement);
@@ -135,12 +171,13 @@ let pokemonRepository = (function () {
         modal.appendChild(heightElement);
         modal.appendChild(weightElement);
         modal.appendChild(typesElement);
+        modal.appendChild(abilitiesElement);
         modalContainer.appendChild(modal); // modalContainer is the father of modal, modal has 3 childs who are button, title and content.
-
+        */
         modalContainer.classList.add('is-visible');
     }
 
-    document.querySelector('#show-modal').addEventListener('click', () => {
+    document.querySelector('#exampleModal').addEventListener('click', () => {
         showModal(pokemon);
     });
 
@@ -154,61 +191,6 @@ let pokemonRepository = (function () {
             dialogPromiseReject = null;
         }
     }
-
-    function showDialog(pokemon) {
-        showModal(pokemon);
-
-        // We want to add a confirm and cancel button to the modal
-        let modal = modalContainer.querySelector('.modal');
-
-        let confirmButton = document.createElement('button');
-        confirmButton.classList.add('modal-confirm');
-        confirmButton.innerText = 'Confirm';
-
-        let cancelButton = document.createElement('button');
-        cancelButton.classList.add('modal-cancel');
-        cancelButton.innerText = 'Cancel';
-
-        modal.appendChild(confirmButton);
-        modal.appendChild(cancelButton);
-
-        // We want to focus the confirmButton so that the user can simply press Enter
-        confirmButton.focus();
-        return new Promise((resolve, reject) => {
-            cancelButton.addEventListener('click', hideModal);
-            confirmButton.addEventListener('click', () => {
-                dialogPromiseReject = null; // Reset this
-                hideModal();
-                resolve();
-            });
-
-            // This can be used to reject from other functions
-            dialogPromiseReject = reject;
-        });
-    }
-
-    document.querySelector('#show-dialog').addEventListener('click', () => {
-        showDialog('Confirm action', 'Are you sure you want to do this?').then(function () {
-            alert('confirmed!');
-        }, () => {
-            alert('not confirmed');
-        });
-    });
-
-    window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-            hideModal();
-        }
-    });
-
-    modalContainer.addEventListener('click', (e) => {
-        // Since this is also triggered when clicking INSIDE the modal
-        // We only want to close if the user clicks directly on the overlay
-        let target = e.target;
-        if (target === modalContainer) {
-            hideModal();
-        }
-    });
 
     return {
         add: add,

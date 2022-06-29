@@ -20,7 +20,6 @@ let pokemonRepository = (function () {
         let container = document.createElement('div');
         let button = document.createElement('button');
         button.innerText = pokemon.name;
-        container.classList.add('container')
         button.classList.add('button-class'); // Refers to the CSS class
         container.appendChild(button)
         listPokemon.appendChild(container);
@@ -44,7 +43,7 @@ let pokemonRepository = (function () {
         });
     };
 
-    let container = document.querySelector('#container');
+    let container = document.querySelector('.container');
     let loadingMessage = document.createElement('div');
     container.append(loadingMessage)
 

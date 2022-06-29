@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: 'Roboto', sans-serif;
 }
@@ -12,15 +13,14 @@ nav {
   border-bottom: goldenrod 3px solid;
 }
 
-ul {
-  text-decoration: none;
+.pokemon-list {
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
 }
 
+
 .button-class {
-  background-color: #4caf50;
-  /* Green */
-  border: none;
-  color: white;
   padding: 15px 25px;
   text-align: center;
   text-decoration: none;
@@ -30,15 +30,17 @@ ul {
   border-radius: 5px;
   box-shadow: 0px 2px 4px #718285;
   -webkit-transition-duration: 0.4s;
-  /* Safari */
   transition-duration: 0.4s;
   cursor: pointer;
-  background-color: white;
+  background-color: #FAFAFA;
   color: black;
-  border: 2px solid #4caf50;
+  border: 2px solid goldenrod;
 }
 
 .button-class:hover {
+  color: white;
+  background: #990000;
+  border: 2px solid goldenrod;
   opacity: .8;
 }
 
@@ -46,4 +48,3 @@ footer {
   background: darkred;
   border-top: goldenrod 3px solid;
 }
-

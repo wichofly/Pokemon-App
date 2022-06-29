@@ -93,11 +93,19 @@ let pokemonRepository = (function () {
             item.pokemonImg = details.sprites.other.dream_world.front_default;
             item.height = details.height;
             let types = [];
-            details.types.forEach((item) => types.push(item.type.name));
+            details.types.forEach((item) => {
+                let name = item.type.name
+                name = name[0].toUpperCase() + name.substring(1)
+                types.push(name)
+            });
             item.types = types;
             item.weight = details.weight;
             let abilities = [];
-            details.abilities.forEach((item) => abilities.push(item.ability.name));
+            details.abilities.forEach((item) => {
+                let name = item.ability.name
+                name = name[0].toUpperCase() + name.substring(1)
+                abilities.push(name)
+            });
             item.abilities = abilities;
         }).catch(function (e) {
             hideLoadingMessage(true);
@@ -146,13 +154,13 @@ let pokemonRepository = (function () {
 
         let typesElement = $(`<div class="ml-4">Types: ${pokemon.types.join(", ")}</div>`);
 
-        let abilitiesElement = $(`<p class="ml-4">Abilities: ${pokemon.abilities}</p>`);
+        let abilitiesElement = $(`<p class="ml-4">Abilities: ${pokemon.abilities.join(", ")}</p>`);
 
         modalTitle.append(nameElement);
         modalBody.append(pokemonImage);
         modalBody.append(heightElement);
         modalBody.append(weightElement);
-        modalBody.append(typesElement);
+        modalBody.append(typesElement);              
         modalBody.append(abilitiesElement);
         $('#exampleModal').modal();
 

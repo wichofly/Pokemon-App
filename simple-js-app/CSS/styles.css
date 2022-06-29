@@ -22,6 +22,7 @@ nav {
 
 
 .button-class {
+  width: 100%;
   padding: 15px 25px;
   text-align: center;
   text-decoration: none;
@@ -33,7 +34,7 @@ nav {
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   cursor: pointer;
-  background-color: #FAFAFA;
+  background-color: #FEF9D9;
   color: black;
   border: 2px solid goldenrod;
 }
@@ -44,6 +45,13 @@ nav {
   border: 2px solid goldenrod;
   opacity: .8;
 }
+
+.modal-img {
+  display: block;
+  width: 50%;
+}
+
+
 
 footer {
   background: darkred;

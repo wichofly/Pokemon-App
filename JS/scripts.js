@@ -24,7 +24,7 @@ let pokemonRepository = (function () {
         let container = document.createElement('div');
         let button = document.createElement('button');
         button.innerText = pokemon.name;
-        button.classList.add('button-class', 'bg-light', 'w-100', 'border-warning', 'rounded'); // Refers to the CSS class
+        button.classList.add('bg-light', 'w-100', 'border-warning', 'rounded'); // Refers to the CSS class
         button.style.padding = '15px';
         button.style.margin = '5px';
         container.appendChild(button)

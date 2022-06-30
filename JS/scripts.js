@@ -24,7 +24,9 @@ let pokemonRepository = (function () {
         let container = document.createElement('div');
         let button = document.createElement('button');
         button.innerText = pokemon.name;
-        button.classList.add('button-class'); // Refers to the CSS class
+        button.classList.add('button-class', 'bg-light', 'w-100', 'border-warning', 'rounded'); // Refers to the CSS class
+        button.style.padding = '15px';
+        button.style.margin = '5px';
         container.appendChild(button)
         listPokemon.appendChild(container);
         ulPokemonList.appendChild(listPokemon);
@@ -146,7 +148,7 @@ let pokemonRepository = (function () {
         //creating elements 
         let nameElement = $(`<h1>${pokemon.name}</h1>`);
 
-        let pokemonImage = $(`<img class="modal-img mx-auto" src="${pokemon.pokemonImg}">`);
+        let pokemonImage = $(`<img class="modal-img mx-auto d-block w-50%" src="${pokemon.pokemonImg}">`);
 
         let heightElement = $(`<p class="ml-4 mt-3 mb-0">Height: ${pokemon.height}</p>`);
 

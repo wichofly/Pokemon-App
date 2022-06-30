@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +8,7 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
-
+/*
 nav {
   background: darkred;
   border-bottom: goldenrod 3px solid;
@@ -51,3 +52,4 @@ footer {
   background: darkred;
   border-top: goldenrod 3px solid;
 }
+*/

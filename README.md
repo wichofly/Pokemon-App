@@ -14,8 +14,8 @@ When you enter the page, you will find the names of the 151 pokemon (the pokemon
     - Load data from an external API via fetch.
     - Ajax, JASON, and Asynchronous Behavior.
     - UI Elements with JavaScript, show data dedtails in a modal.
-    - jQuery.
-    - Bootstrap.
+- jQuery.
+- Bootstrap.
 
 # Which API the project uses #
 Pokemon API https://pokeapi.co/

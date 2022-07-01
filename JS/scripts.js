@@ -126,8 +126,6 @@ let pokemonRepository = (function () {
         });
     }
 
-    let modalContainer = document.querySelector('#exampleModal');
-
     function showModal(pokemon) {
         let modalBody = $('.modal-body');
         let modalTitle = $('.modal-title');
@@ -154,62 +152,9 @@ let pokemonRepository = (function () {
         modalBody.append(weightElement);
         modalBody.append(typesElement);              
         modalBody.append(abilitiesElement);
-        $('#exampleModal').modal();
-
-
-        /* 
-        modalContainer.innerHTML = ''; // Clear all existing modal content
-        let modal = document.createElement('div');
-        modal.classList.add('modal');
-
-        // Add the new modal content
-        let closeButtonElement = document.createElement('button');
-        closeButtonElement.classList.add('modal-close'); // this class exists in the CSS file.
-        closeButtonElement.innerText = 'Close';
-        closeButtonElement.addEventListener('click', hideModal);
-
-        let pokemonImg = document.createElement('img');
-        pokemonImg.src = pokemon.imageUrl;
-
-        let titleElement = document.createElement('h1');
-        titleElement.innerText = pokemon.name.toUpperCase();
-
-        let heightElemen = document.createElement('p');
-        heightElement.innerText = `Height: ${pokemon.height}`;
-                                    
-        let weightElemen = document.createElement('p');
-        weightElement.innerText = `Weight: ${pokemon.weight}`;
-
-        let typesElemen = document.createElement('p');
-        typesElement.innerText = `Types: ${pokemon.types.join(", ")}`;
-                                    
-        modal.appendChild(closeButtonElement);
-        modal.appendChild(titleElement);
-        modal.appendChild(pokemonImg);
-        modal.appendChild(heightElement);
-        modal.appendChild(weightElement);
-        modal.appendChild(typesElement);
-        modal.appendChild(abilitiesElement);
-        modalContainer.appendChild(modal); // modalContainer is the father of modal, modal has 3 childs who are button, title and content.
-        */
-        modalContainer.classList.add('is-visible');
+        $('#exampleModal').modal();      
     }
-
-    document.querySelector('#exampleModal').addEventListener('click', () => {
-        showModal(pokemon);
-    });
-
-    let dialogPromiseReject; // This can be set later, by showDialog
-
-    function hideModal() {
-        modalContainer.classList.remove('is-visible');
-
-        if (dialogPromiseReject) {
-            dialogPromiseReject();
-            dialogPromiseReject = null;
-        }
-    }
-
+    
     return {
         add: add,
         getAll: getAll,

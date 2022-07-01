@@ -136,15 +136,15 @@ let pokemonRepository = (function () {
         modalBody.empty();
 
         //creating elements 
-        let nameElement = $(`<h1>${pokemon.name}</h1>`);
+        let nameElement = $(`<h1 class="ml-4 mt-3 mb-0">${pokemon.name}</h1>`);
 
-        let pokemonImage = $(`<img class="modal-img mx-auto d-block w-50%" src="${pokemon.pokemonImg}">`);
+        let pokemonImage = $(`<img class="modal-img mx-auto d-block w-50" src="${pokemon.pokemonImg}">`);
 
         let heightElement = $(`<p class="ml-4 mt-3 mb-0">Height: ${pokemon.height}</p>`);
 
         let weightElement = $(`<p class="ml-4 mb-0">Weight: ${pokemon.weight}</p>`);
 
-        let typesElement = $(`<div class="ml-4">Types: ${pokemon.types.join(", ")}</div>`);
+        let typesElement = $(`<div class="ml-4 mb-0">Types: ${pokemon.types.join(", ")}</div>`);
 
         let abilitiesElement = $(`<p class="ml-4">Abilities: ${pokemon.abilities.join(", ")}</p>`);
 
